@@ -41,14 +41,14 @@
     <% profile.students.forEach(student => { %>
       <h3>
         <%= getRandomStudent() %>
-        <%= student.name %> is a <%= student.age %> year old <%= student.favoritesubject %>
+        <%= student.name %> is <%= student.age %> years old <%= student.favoritesubject %>
         <% if (isSelf) { %>
           <form 
             action="/profiles/<%= profile._id %>/students/<%= student.id %>?_method=DELETE"
             method="post"
             style="display: inline-block;"
           >
-            <button type="submit">😸 Free <%= student.name %></button>
+            <button type="submit">🧑‍🎓 Remove <%= student.name %></button>
           </form>
         <% } %>   
       </h3>
@@ -60,7 +60,7 @@
   <% } %> 
 </main>
 <% function getRandomStudent() { %>
-    <% let students = ["🐈", "🧑‍🎓", "😸", "😹", " 👩🏼‍🦲", "😀", "😼", "😾", "😿", "🙀"] %>
+    <% let students = ["🧑‍🎓", "🧑‍🎓", "🧑‍🎓", "👨🏼‍🎓", " 👨🏽‍🎓", "👨🏿‍🎓", "👩🏿‍🎓", "👩🏾‍🎓", "👩🏻‍🎓", "👩🏽‍🎓"] %>
     <% return students[Math.floor(Math.random() * students.length)] %>
   <% } %> 
 
