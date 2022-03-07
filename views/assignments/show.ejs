@@ -5,16 +5,11 @@
 	<p>From the kitchen of <%= assignment.owner.name %>...</p>
   <h1><%= assignment.name %> 🌮</h1>
   <h2>This assignment is <%= assignment.completed ? 'completed! 😋' : 'not completed! 😫' %></h2>
-</section>
 
-<section>
-	<p>From the kitchen of <%= assignment.owner.name %>...</p>
-  <h1><%= assignment.name %> 🌮</h1>
-  <h2>This assignment is <%= assignment.completed ? 'completed! 😋' : 'not completed! 😫' %></h2>
-	<%# New code below %>
+
 	<% if (user) { %>
     <form 
-      action="/assignments/<%= assignment._id %>/flip-completed?_method=POST" 
+      action="/assignments/<%= assignment._id %>/flip-completed?_method=PATCH" 
       method="POST"
     >
       <button class="btn" type="submit">
@@ -27,8 +22,6 @@
       <button class="btn" type="submit">Edit this Assignment 🌮🚧</button>
     </form>
   <% } %>
-	<%# New code above %>
-</section>
-  <%# New code above %>
+
 </section>
 <%- include('../partials/footer') %>

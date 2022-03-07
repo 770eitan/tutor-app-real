@@ -7,19 +7,20 @@
       <%# New Code Below %>
     <% if (user) { %>
       <h2>Add an Assignment!</h2>
-      <form action="/Assignments" method="POST">
+      <form action="/assignments" method="POST">
         <label>
           Name: 
           <input type="text" name="name" autocomplete="off">
         </label>
         <label>
           Completed?
-          <input type="checkbox" name="Completed">
+          <input type="checkbox" name="completed">
         </label>
         <button type="submit">Add 🌮</button>
       </form>
     <% } %>
-
+<h2>All the Assignments</h2>
+<ul>
     	<% assignments.forEach(assignment => { %>
     <li>
       🌮 
@@ -27,5 +28,7 @@
       is <%= assignment.completed ? 'completed' : 'not completed' %>
     </li>
   <% }) %>
+</ul>
+</section>
 
 <%- include('../partials/footer') %>

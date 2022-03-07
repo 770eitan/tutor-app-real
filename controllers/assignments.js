@@ -18,7 +18,7 @@ import { Assignment } from '../models/assignment.js'
 
   function create(req, res) {
     req.body.owner = req.user.profile._id
-    req.body.complete = !!req.body.complete
+    req.body.completed = !!req.body.completed
     Assignment.create(req.body)
     .then(assignment => {
       res.redirect('/assignments')

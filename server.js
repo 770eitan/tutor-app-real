@@ -7,6 +7,7 @@ import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
+import { router as profilesRouter } from './routes/profiles.js'
 
 // connect to MongoDB with mongoose
 import('./config/database.js')
@@ -78,5 +79,7 @@ app.use(function (err, req, res, next) {
     title: `🎊 ${err.status || 500} Error`,
   })
 })
+
+app.use('/profiles', profilesRouter)
 
 export { app }
