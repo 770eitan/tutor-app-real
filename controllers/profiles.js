@@ -49,8 +49,24 @@ function index(req, res) {
     })
   }
 
+
+  function deleteStudent(req, res) {
+    Profile.findById(req.params.profileId)
+    .then(profile => {
+      profile.students.remove({_id: req.params.studentId})
+      profile.save()
+      .then(() => {
+        res.redirect(`/profiles/${req.user.profile._id}`)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  }
 export {
   index,
   show,
-  createStudent
+  createStudent,
+  deleteStudent
 }

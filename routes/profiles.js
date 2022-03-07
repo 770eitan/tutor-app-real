@@ -11,6 +11,9 @@ router.get("/:id", isLoggedIn, profilesCtrl.show)
 // POST - localhost:3000/profiles/:id/students
 router.post("/:id/students", isLoggedIn, profilesCtrl.createStudent)
 
+// DELETE profiles/students/:id
+router.delete('/:profileId/students/:studentId', isLoggedIn, profilesCtrl.deleteStudent)
+
 export {
   router
 }
