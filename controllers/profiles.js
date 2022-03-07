@@ -34,7 +34,23 @@ function index(req, res) {
     })
   }
 
+  function createStudent(req, res) {
+    Profile.findById(req.user.profile._id)
+    .then(profile => {
+      profile.students.push(req.body)
+      profile.save()
+      .then(() => {
+        res.redirect(`/profiles/${req.user.profile._id}`)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  }
+
 export {
   index,
-  show
+  show,
+  createStudent
 }

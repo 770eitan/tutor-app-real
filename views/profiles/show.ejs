@@ -59,6 +59,9 @@
     </h2>
   <% } %> 
 </main>
-
+<% function getRandomStudent() { %>
+    <% let students = ["🐈", "🐱", "😸", "😹", "😺", "😻", "😼", "😾", "😿", "🙀"] %>
+    <% return students[Math.floor(Math.random() * students.length)] %>
+  <% } %> 
 
 <%- include('../partials/footer') %>

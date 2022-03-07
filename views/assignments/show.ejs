@@ -23,5 +23,22 @@
     </form>
   <% } %>
 
+	<% if (profile.students.length)  {%>
+    <h2>
+      <%= isSelf ? "You have" : `${profile.name} has` %> students! Here they are!
+    </h2>
+    <% profile.students.forEach(student => { %>
+      <h3>
+        <%= getRandomStudent() %> 
+        <%= student.name %> is a <%= student.age %> year old <%= student.breed %>
+      </h3>
+    <% }) %>
+  <% } else { %>
+    <h2>
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any students.
+    </h2> 
+  <% } %> 
+</main>
+
 </section>
 <%- include('../partials/footer') %>
