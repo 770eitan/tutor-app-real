@@ -2,43 +2,27 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<p>From the kitchen of <%= assignment.owner.name %>...</p>
-  <h1><%= assignment.name %> 📃</h1>
-  <h2>This assignment is <%= assignment.completed ? 'completed! 😋' : 'not completed! 😫' %></h2>
-
-
-	<% if (user) { %>
+  <p>From the kitchen of <%= assignment.owner.name %></p>
+  <h1><%= assignment.name %> 🌮</h1>
+  <h2>This assignment is <%= assignment.tasty ? "tasty! 🤯" : "not tasty 😔" %></h2>
+  <% if (user) { %>
     <form 
-      action="/assignments/<%= assignment._id %>/flip-completed?_method=PATCH" 
+      action="/assignments/<%= assignment._id %>/flip-tasty?_method=PATCH"
       method="POST"
     >
       <button class="btn" type="submit">
-        Mark assignment <%= assignment.completed ? 'not completed 📃🥺' : 'completed 📃🎉' %>
+        Make assignment <%= assignment.tasty ? "not tasty 😠" : "tasty 🎉" %> 
       </button>
     </form>
   <% } %>
   <% if (assignment.owner.equals(user?.profile._id)) { %>
     <form action="/assignments/<%= assignment._id %>/edit" method="GET">
-      <button class="btn" type="submit">Edit this Assignment 📃🚧</button>
+      <button class="btn" type="submit">Edit this Assignment 🚧</button>
+    </form>
+    <form action="/assignments/<%= assignment._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete this Assignment 🌮😠</button>
     </form>
   <% } %>
-
-	<% if (profile.students.length)  {%>
-    <h2>
-      <%= isSelf ? "You have" : `${profile.name} has` %> students! Here they are!
-    </h2>
-    <% profile.students.forEach(student => { %>
-      <h3>
-        <%= getRandomStudent() %> 
-        <%= student.name %> is a <%= student.age %> year old <%= student.breed %>
-      </h3>
-    <% }) %>
-  <% } else { %>
-    <h2>
-      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any students.
-    </h2> 
-  <% } %> 
-</main>
-
 </section>
+
 <%- include('../partials/footer') %>
