@@ -1,0 +1,34 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+	<p>From the kitchen of <%= assignment.owner.name %>...</p>
+  <h1><%= assignment.name %> 🌮</h1>
+  <h2>This assignment is <%= assignment.completed ? 'completed! 😋' : 'not completed! 😫' %></h2>
+</section>
+
+<section>
+	<p>From the kitchen of <%= assignment.owner.name %>...</p>
+  <h1><%= assignment.name %> 🌮</h1>
+  <h2>This assignment is <%= assignment.completed ? 'completed! 😋' : 'not completed! 😫' %></h2>
+	<%# New code below %>
+	<% if (user) { %>
+    <form 
+      action="/assignments/<%= assignment._id %>/flip-completed?_method=POST" 
+      method="POST"
+    >
+      <button class="btn" type="submit">
+        Mark assignment <%= assignment.completed ? 'not completed 🌮🥺' : 'completed 🌮🎉' %>
+      </button>
+    </form>
+  <% } %>
+  <% if (assignment.owner.equals(user?.profile._id)) { %>
+    <form action="/assignments/<%= assignment._id %>/edit" method="GET">
+      <button class="btn" type="submit">Edit this Assignment 🌮🚧</button>
+    </form>
+  <% } %>
+	<%# New code above %>
+</section>
+  <%# New code above %>
+</section>
+<%- include('../partials/footer') %>

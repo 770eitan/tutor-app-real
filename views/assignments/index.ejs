@@ -1,0 +1,31 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+
+<section>
+    <h1>Assignments! 🌮🌮🌮</h1>
+      <%# New Code Below %>
+    <% if (user) { %>
+      <h2>Add an Assignment!</h2>
+      <form action="/Assignments" method="POST">
+        <label>
+          Name: 
+          <input type="text" name="name" autocomplete="off">
+        </label>
+        <label>
+          Completed?
+          <input type="checkbox" name="Completed">
+        </label>
+        <button type="submit">Add 🌮</button>
+      </form>
+    <% } %>
+
+    	<% assignments.forEach(assignment => { %>
+    <li>
+      🌮 
+      <a href="/assignments/<%= assignment._id %>"><%= assignment.name %></a> 
+      is <%= assignment.completed ? 'completed' : 'not completed' %>
+    </li>
+  <% }) %>
+
+<%- include('../partials/footer') %>
