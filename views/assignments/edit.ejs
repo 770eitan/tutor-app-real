@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit the Assignment! 🌮</h1>
+  <h1>Edit the Assignment! 📃</h1>
   <form action="/assignments/<%= assignment._id %>?_method=PUT" method="POST">
     <label>
       Name: 
@@ -21,7 +21,7 @@
 				<%= assignment.completed ? "checked" : "" %> 
       >
     </label>
-    <button type="submit">Edit the 🌮</button>
+    <button type="submit">Edit the 📃</button>
   </form>
 </section>
 

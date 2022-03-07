@@ -3,7 +3,7 @@
 
 <section>
 	<p>From the kitchen of <%= assignment.owner.name %>...</p>
-  <h1><%= assignment.name %> 🌮</h1>
+  <h1><%= assignment.name %> 📃</h1>
   <h2>This assignment is <%= assignment.completed ? 'completed! 😋' : 'not completed! 😫' %></h2>
 
 
@@ -13,13 +13,13 @@
       method="POST"
     >
       <button class="btn" type="submit">
-        Mark assignment <%= assignment.completed ? 'not completed 🌮🥺' : 'completed 🌮🎉' %>
+        Mark assignment <%= assignment.completed ? 'not completed 📃🥺' : 'completed 📃🎉' %>
       </button>
     </form>
   <% } %>
   <% if (assignment.owner.equals(user?.profile._id)) { %>
     <form action="/assignments/<%= assignment._id %>/edit" method="GET">
-      <button class="btn" type="submit">Edit this Assignment 🌮🚧</button>
+      <button class="btn" type="submit">Edit this Assignment 📃🚧</button>
     </form>
   <% } %>
 

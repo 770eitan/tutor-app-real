@@ -6,7 +6,7 @@ import { Assignment } from '../models/assignment.js'
     .then(assignments => {
       res.render('assignments/index', {
         assignments,
-        title: "🌮",
+        title: "📃",
         user: req.user
       })
     })
@@ -35,7 +35,7 @@ import { Assignment } from '../models/assignment.js'
     .then(assignment => {
       res.render('assignments/show', {
         assignment,
-        title: "🌮 show",
+        title: "📃 show",
         user: req.user
       })
     })
@@ -65,7 +65,7 @@ import { Assignment } from '../models/assignment.js'
     .then(assignment => {
       res.render('assignments/edit', {
         assignment,
-        title: "edit 🌮"
+        title: "edit 📃"
       })
     })
     .catch(err => {
@@ -108,6 +108,24 @@ import { Assignment } from '../models/assignment.js'
     })
   }
 
+  function deleteAssignment(req, res) {
+    Assignment.findById(req.params.id)
+    .then(assignment => {
+      if (assignment.owner.equals(req.user.profile._id)) {
+        assignment.delete()
+        .then(() => {
+          res.redirect("/assignments")
+        })
+      } else {
+        throw new Error ("NOT AUTHORIZED")
+      }
+    })
+    .catch(err => {
+      console.log("the error:", err)
+      res.redirect("/assignments")
+    })
+  }
+
 export {
   index,
   create,
@@ -115,5 +133,6 @@ export {
   flipCompleted,
   edit,
   update,
-  createStudent
+  createStudent,
+  deleteAssignment
 }
