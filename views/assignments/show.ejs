@@ -4,14 +4,14 @@
 <section>
   <p>From the kitchen of <%= assignment.owner.name %></p>
   <h1><%= assignment.name %> 🌮</h1>
-  <h2>This assignment is <%= assignment.tasty ? "tasty! 🤯" : "not tasty 😔" %></h2>
+  <h2>This assignment is <%= assignment.completed ? "completed! 🤯" : "not completed 😔" %></h2>
   <% if (user) { %>
     <form 
-      action="/assignments/<%= assignment._id %>/flip-tasty?_method=PATCH"
+      action="/assignments/<%= assignment._id %>/flip-completed?_method=PATCH"
       method="POST"
     >
       <button class="btn" type="submit">
-        Make assignment <%= assignment.tasty ? "not tasty 😠" : "tasty 🎉" %> 
+        Make assignment <%= assignment.completed ? "not completed 😠" : "completed 🎉" %> 
       </button>
     </form>
   <% } %>

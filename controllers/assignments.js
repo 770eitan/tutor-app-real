@@ -65,7 +65,8 @@ import { Assignment } from '../models/assignment.js'
     .then(assignment => {
       res.render('assignments/edit', {
         assignment,
-        title: "edit 📃"
+        title: "edit 📃",
+        user: req.user
       })
     })
     .catch(err => {
@@ -134,5 +135,5 @@ export {
   edit,
   update,
   createStudent,
-  deleteAssignment
+  deleteAssignment as delete,
 }
