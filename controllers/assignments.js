@@ -35,7 +35,8 @@ import { Assignment } from '../models/assignment.js'
     .then(assignment => {
       res.render('assignments/show', {
         assignment,
-        title: "🌮 show"
+        title: "🌮 show",
+        user: req.user
       })
     })
     .catch(err => {

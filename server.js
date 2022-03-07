@@ -63,6 +63,8 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/assignments', assignmentsRouter)
 app.use(passUserToView)
+app.use('/profiles', profilesRouter)
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))
@@ -80,6 +82,5 @@ app.use(function (err, req, res, next) {
   })
 })
 
-app.use('/profiles', profilesRouter)
 
 export { app }
