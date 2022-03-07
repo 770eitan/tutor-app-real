@@ -5,13 +5,60 @@
   <% if (profile.avatar) { %>
     <div>
       <img 
-        class="profile-avatar"
         src="<%= profile.avatar %>" 
         alt="<%= profile.name %> avatar"
+        class="profile-avatar"
       >
     </div>
   <% } %>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  <% if (isSelf) { %>
+    <h2>Add a student!</h2>
+    <form 
+      action="/profiles/<%= profile._id %>/students"
+      autocomplete="off"
+      method="post"
+    >
+      <label>
+        Name:
+        <input type="text" name="name" >
+      </label>
+      <label>
+        Age:
+        <input type="number" name="age">
+      </label>
+      <label>
+        FavoriteSubject:
+        <input type="text" name="favoritesubject">
+      </label>
+      <button type="submt">Add 🐱</button>
+    </form>
+  <% } %>
+  <% if (profile.students.length) { %>
+    <h2>
+      <%= isSelf ? "You have" : `${profile.name} has` %> students! Here they are!
+    </h2>
+    <% profile.students.forEach(student => { %>
+      <h3>
+        <%= getRandomStudent() %>
+        <%= student.name %> is a <%= student.age %> year old <%= student.favoritesubject %>
+        <% if (isSelf) { %>
+          <form 
+            action="/profiles/<%= profile._id %>/students/<%= student.id %>?_method=DELETE"
+            method="post"
+            style="display: inline-block;"
+          >
+            <button type="submit">😸 Free <%= student.name %></button>
+          </form>
+        <% } %>   
+      </h3>
+    <% }) %>
+  <% } else { %>
+    <h2>
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any students!
+    </h2>
+  <% } %> 
 </main>
+
 
 <%- include('../partials/footer') %>
