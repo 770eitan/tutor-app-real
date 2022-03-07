@@ -47,9 +47,8 @@ import { Assignment } from '../models/assignment.js'
   function flipCompleted(req, res) {
     Assignment.findById(req.params.id)
     .then(assignment => {
-      assignment.completed =  !!assignment.completed
+      assignment.completed = !assignment.completed
       assignment.save()
-      console.log(req.body,"!!!!!!!!!!!!!!!")
       .then(()=> {
         res.redirect(`/assignments/${assignment._id}`)
       })
@@ -73,12 +72,31 @@ import { Assignment } from '../models/assignment.js'
       res.redirect('/assignments')
     })
   }
-  
+
+  function update(req, res) {
+    Assignment.findById(req.params.id)
+    .then(assignment => {
+      if (assignment.owner.equals(req.user.profile._id)) {
+        req.body.completed = !!req.body.completed
+        assignment.updateOne(req.body, {new: true})
+        .then(()=> {
+          res.redirect(`/assignments/${assignment._id}`)
+        })
+      } else {
+        throw new Error ('🚫 Not authorized 🚫')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/assignments`)
+    })
+  }
 
 export {
   index,
   create,
   show,
   flipCompleted,
-  edit
+  edit,
+  update
 }
