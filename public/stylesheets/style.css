@@ -17,6 +17,9 @@ html {
 }
 
 body {
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
   background-color: gray;
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -29,6 +32,8 @@ nav {
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
+  width: 100%;
+
 }
 
 main {
@@ -40,4 +45,32 @@ main {
 
 h1 {
   font-size: 3.6rem;
+}
+h2 {
+  font-size: 3.3rem;
+}
+
+.font-large{
+  font-size: 3rem;
+}
+
+.bordered{
+  border: 1px solid black;
+}
+
+.margin-top{
+  margin-top: 1rem;
+}
+
+.centered-all{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.column{
+  flex-direction: column;
+}
+
+.full-width{
+  width: 100%;
 }

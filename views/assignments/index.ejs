@@ -17,15 +17,18 @@
       <button type="submit">Add 📃</button>
     </form>
   <% } %>
+  <div class="bordered margin-top centered-all column">
   <h2>All the Assignments!</h2>
+  
   <ul>
     <% assignments.forEach(assignment => { %>
-      <li>
+      <li class="font-large">
         📃 
         <a href="/assignments/<%= assignment._id %>"><%= assignment.name %></a> 
         is <%= assignment.completed ? "completed" : "not completed"%></li>
     <% }) %>
   </ul>
+</div>
 </section>
 
 <%- include('../partials/footer') %>

@@ -6,4 +6,7 @@
     
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link id= "favicon" rel="icon"  href="/assets/favicon.png" type=image/png sizes="16x16"/>  <title><%= title %></title>
- 
+     <% if (!user) { %>
+      <link rel="stylesheet" href="./stylesheets/siwg.css"
+    <% } %>
+    </head>
