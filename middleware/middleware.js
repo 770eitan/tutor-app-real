@@ -8,7 +8,7 @@ function passUserToView(req, res, next) {
     res.redirect('/auth/google')
   }
   
-  
+  //fdf
   export {
     passUserToView,
     isLoggedIn

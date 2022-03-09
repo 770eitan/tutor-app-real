@@ -17,7 +17,7 @@
     <form 
       action="/profiles/<%= profile._id %>/students"
       autocomplete="off"
-      method="post"
+      method="POST"
     >
       <label>
         Name:
@@ -29,9 +29,9 @@
       </label>
       <label>
         FavoriteSubject:
-        <input type="text" name="favoritesubject">
+        <input type="text" name="favoriteSubject">
       </label>
-      <button type="submt">Add 🧑‍🎓</button>
+      <button type="submit">Add 🧑‍🎓</button>
     </form>
   <% } %>
   <% if (profile.students.length) { %>
@@ -41,7 +41,7 @@
     <% profile.students.forEach(student => { %>
       <h3>
         <%= getRandomStudent() %>
-        <%= student.name %> is <%= student.age %> years old <%= student.favoritesubject %>
+        <%= student.name %> is <%= student.age %> years old. Subject:<%= student.favoriteSubject %>
         <% if (isSelf) { %>
           <form 
             action="/profiles/<%= profile._id %>/students/<%= student.id %>?_method=DELETE"
