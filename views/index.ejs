@@ -1,8 +1,9 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main>
-  <h1>hello, <%= user ? user.profile.name : "fellow tutor" %></h1>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <h1 class="one-line-text">hello, <%= user ? user.profile.name : "fellow tutor" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -11,6 +12,10 @@
       />
     </div>
   <% } %>
-</main>
-
+  <p class="lead">Don't let your students suffer due to your disorginization!</p>
+  <hr class="my-4">
+  <p>Keep track of your assignments and students with this tutor-app</p>
+  <p class="lead">
+  </p>
+</div>
 <%- include('./partials/footer') %>

@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <script src="https://kit.fontawesome.com/f67e0efb37.js" crossorigin="anonymous"></script>
+    <% if (user) { %>
+      <span style="font-size: 3em; color: Tomato;">
+      <a href="/auth/logout"><i class="fa-solid fa-door-open"></i></a>
+    </span>
+    <% } else { %>
+      <a href="./auth/Google" class="siwg-link">
+        <button type="submit" class="siwg">
+          <img id="siwg-image" alt="Sign in with Google" />
+        </button>
+      </a>
+    <% } %>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link id= "favicon" rel="icon"  href="/assets/favicon.png" type=image/png sizes="16x16"/>  <title><%= title %></title>
      <% if (!user) { %>

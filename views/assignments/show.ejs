@@ -1,8 +1,8 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
-  <p> Students of <%= assignment.owner.name %></p>
+<section class="main">
+  <p> Assignments given by <%= assignment.owner.name %></p>
   <h1><%= assignment.name %> 📃</h1>
   <h2>This assignment is <%= assignment.completed ? "completed! 💯" : "not completed ⓪" %></h2>
   <% if (user) { %>
