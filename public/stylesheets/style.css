@@ -69,6 +69,13 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+
+.centered-all-assignments{
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+}
 .column{
   flex-direction: column;
 }

@@ -1,13 +1,13 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
-  <h1 class="centered-all">Assignments! 📃</h1>
+<section class="centered-all-assignments">
+  
   <% if (user) { %>
    
    
     <h2>Add an Assignment!</h2>
-    <form class="centered-all" action="/assignments" method="POST" ">
+    <form  action="/assignments" method="POST" ">
       <label>
         Add Assignment:
         <input type="text" name="name" autocomplete="off">
