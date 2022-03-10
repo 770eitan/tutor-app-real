@@ -88,3 +88,19 @@ h2 {
   font-size:xx-large;
   width: 500px;
 }
+
+.assignment-show{
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 33% 33% 33% ;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 200px;
+  font-size: x-large;
+  align-content: space-evenly ;
+}
+
+.assignment-show-button{
+  grid-column-start: 2;
+}

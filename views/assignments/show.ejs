@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section class="main">
+<section class="main assignment-show">
   <p> Assignments given by <%= assignment.owner.name %></p>
   <h1><%= assignment.name %> 📃</h1>
   <h2>This assignment is <%= assignment.completed ? "completed! 💯" : "not completed ⓪" %></h2>
@@ -10,17 +10,17 @@
       action="/assignments/<%= assignment._id %>/flip-completed?_method=PATCH"
       method="POST"
     >
-      <button class="btn" type="submit">
+      <button class="btn assignment-show-button" type="submit">
         Mark assignment <%= assignment.completed ? "not completed ⓪" : "completed 💯" %> 
       </button>
     </form>
   <% } %>
   <% if (assignment.owner.equals(user?.profile._id)) { %>
     <form action="/assignments/<%= assignment._id %>/edit" method="GET">
-      <button class="btn" type="submit">Edit this Assignment ✍️</button>
+      <button class="btn " type="submit">Edit this Assignment ✍️</button>
     </form>
     <form action="/assignments/<%= assignment._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Delete this Assignment 📃😠</button>
+      <button class="btn " type="submit">Delete this Assignment ❌</button>
     </form>
   <% } %>
 </section>
